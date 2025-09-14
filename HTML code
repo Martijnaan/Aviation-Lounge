@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aviation Lounge</title>
+<style>
+  /* Delta Airlines kleuren: donkerblauw, rood, wit */
+  :root {
+    --delta-blue: #003366;
+    --delta-red: #C8102E;
+    --delta-white: #FFFFFF;
+    --bg-light: #f5f5f5;
+  }
+
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--delta-blue);
+  }
+
+  header {
+    background-color: var(--delta-blue);
+    color: var(--delta-white);
+    padding: 20px;
+    text-align: center;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    background-color: var(--delta-red);
+  }
+
+  nav button {
+    background: none;
+    border: none;
+    color: var(--delta-white);
+    padding: 15px 25px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  nav button:hover {
+    background-color: var(--delta-white);
+    color: var(--delta-red);
+  }
+
+  section {
+    padding: 20px;
+    display: none;
+  }
+
+  section.active {
+    display: block;
+  }
+
+  h2 {
+    color: var(--delta-red);
+  }
+
+  .card {
+    background-color: var(--delta-white);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  .btn {
+    background-color: var(--delta-blue);
+    color: var(--delta-white);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+
+  .btn:hover {
+    background-color: var(--delta-red);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Aviation Lounge</h1>
+</header>
+
+<nav>
+  <button onclick="showSection('news')">News</button>
+  <button onclick="showSection('leaderboard')">Leaderboard</button>
+  <button onclick="showSection('events')">Events</button>
+  <button onclick="showSection('rewards')">Rewards</button>
+  <button onclick="window.open('https://discord.gg/YOUR_DISCORD_LINK', '_blank')">Join Discord</button>
+</nav>
+
+<section id="news" class="active">
+  <h2>Latest News</h2>
+  <div class="card">
+    <h3>New Airbus A320 Released</h3>
+    <p>Airbus announced the new A320 variant today. Exciting news for aviation fans!</p>
+    <a href="#">Read more</a>
+  </div>
+  <div class="card">
+    <h3>Delta Introduces New Routes</h3>
+    <p>Delta Airlines is adding flights to 5 new destinations this fall.</p>
+    <a href="#">Read more</a>
+  </div>
+</section>
+
+<section id="leaderboard">
+  <h2>Leaderboard</h2>
+  <div class="card">
+    <p>1. Martijn - 150 points</p>
+    <p>2. Alex - 120 points</p>
+    <p>3. Sarah - 90 points</p>
+  </div>
+</section>
+
+<section id="events">
+  <h2>Upcoming Events</h2>
+  <div class="card">
+    <h3>Flight Simulator Stream</h3>
+    <p>Date: 2025-09-20 | Time: 20:00</p>
+    <a href="#">Join Stream</a>
+  </div>
+</section>
+
+<section id="rewards">
+  <h2>Rewards</h2>
+  <div class="card">
+    <p>Wallpaper 1 - 50 points</p>
+    <button class="btn" onclick="redeem('Wallpaper 1', 50)">Redeem</button>
+  </div>
+  <div class="card">
+    <p>Wallpaper 2 - 100 points</p>
+    <button class="btn" onclick="redeem('Wallpaper 2', 100)">Redeem</button>
+  </div>
+</section>
+
+<script>
+  function showSection(sectionId) {
+    document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+    document.getElementById(sectionId).classList.add('active');
+  }
+
+  function redeem(item, points) {
+    alert(`You redeemed ${item} for ${points} points!`);
+    // Hier kan je later punten afhalen in een backend/database
+  }
+</script>
+
+</body>
+</html>
